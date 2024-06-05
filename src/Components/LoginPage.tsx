@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import '../css/LoginPage.css';
-import { Link } from 'react-router-dom';
+import {json, Link} from 'react-router-dom';
+import config from "../config";
 
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+
+    var backendAddresse = config.backendUrl;
+
     const handleLogin = async () => {
         try {
-            const response = await fetch('http://localhost:3001/user/login', {
+            console.log('Logging in with email:', email, 'and password:', password);
+            const response = await fetch(backendAddresse+'/user/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -32,7 +37,7 @@ function LoginPage() {
     return (
         <div className="login-container">
             <div className="login-box">
-                <label>Email</label>
+                <label>Username</label>
                 <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <label>Password</label>
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />

@@ -7,7 +7,7 @@ function Layout() {
             <nav>
                 <Link to={'/'}>Home</Link>
                 <Link to={'/Overview'}>Overview</Link>
-                <Link to={'/register'}>Register</Link>
+                <Link to={'/input'}>Input</Link>
             </nav>
             <Outlet />
         </div>

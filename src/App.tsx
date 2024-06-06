@@ -5,6 +5,7 @@ import LoginPage from './Components/LoginPage';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import OverviewPage from "./Components/OverviewPage";
 import Layout from "./Components/Layout";
+import InputPage from "./Components/InputPage";
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                     <Route path="/login" element={<LoginPage/>}/>
                     <Route path="/register" element={<RegisterPage/>}/>
                     <Route path="/overview" element={<OverviewPage/>}/>
+                    <Route path="/input" element={<InputPage/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

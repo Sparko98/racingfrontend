@@ -1,4 +1,10 @@
+export interface IType {
+    id?: string,
+    name: string
+}
+
 export interface IRace {
+    id?: string,
     // foreign
     event_id: string,
     circuit_id: string,
@@ -8,6 +14,7 @@ export interface IRace {
 }
 
 export interface IUser {
+    id?: string,
     // attributes
     email: string,
     password: string,
@@ -17,6 +24,7 @@ export interface IUser {
 }
 
 export interface IUserRace {
+    id?: string,
     // foreign
     race_id: string,
     vehicle_id: string,
@@ -27,25 +35,19 @@ export interface IUserRace {
     position_race_class?: number,
 }
 
-export interface IEvent {
+export interface IEvent extends IType {
     // attributes
-    name: string,
     organizers: string[],
 }
 
-export interface IVehicle {
+export interface IVehicle extends IType {
     // attributes
     class: string,
-    name: string,
 }
 
-export interface IGame {
+export interface IGame extends IType {
     // attributes
-    name: string,
     release_date?: number,
 }
 
-export interface ICircuit {
-    // attributes
-    name: string,
-}
+export interface ICircuit extends IType {}

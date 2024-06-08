@@ -3,7 +3,7 @@ import Layout from "./Layout";
 
 function OverviewPage() {
     return (
-        <div>
+        <div className={'bg-dark'}>
             <p>test</p>
         </div>
     );

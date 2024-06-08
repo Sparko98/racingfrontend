@@ -27,7 +27,9 @@ function Layout() {
                     <NavItem path={'/races'} title={'Races'}/>
                 </ul>
             )}
-            <Outlet/>
+            <div className={'d-flex flex-fill bg-gradient-dark'} >
+                <Outlet/>
+            </div>
         </div>
     );
 }

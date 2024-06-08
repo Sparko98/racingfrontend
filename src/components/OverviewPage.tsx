@@ -1,10 +1,9 @@
 import React from 'react';
-import Layout from "./Layout";
 
 function OverviewPage() {
     return (
-        <div className={'bg-dark'}>
-            <p>test</p>
+        <div className={''}>
+            <h1>Dashboard</h1>
         </div>
     );
 }

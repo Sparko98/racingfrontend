@@ -6,6 +6,7 @@ import OverviewPage from "./components/OverviewPage";
 import Layout from "./components/Layout";
 import Cookies from "js-cookie";
 import RegisterPage from "./components/RegisterPage";
+import InputPage from "./components/InputPage";
 
 function App() {
     useEffect(() => {
@@ -43,7 +44,7 @@ function App() {
                 <Route path="/" element={<Layout/>}>
                     <Route index path="/" element={<OverviewPage/>}/>
                     <Route path="/login" element={<LoginPage/>}/>
-                    <Route path="/input" element={<RegisterPage/>}/>
+                    <Route path="/input" element={<InputPage/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

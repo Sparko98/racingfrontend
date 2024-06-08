@@ -1,51 +1,32 @@
-import React, { useState } from 'react';
+import React, {useEffect} from 'react';
 import '../css/LoginPage.css';
-import {json, Link} from 'react-router-dom';
-import config from "../config";
+import logo from '../assets/logo_light.png'
+import discordLogo from '../assets/discord.svg'
 
 function LoginPage() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-
-    var backendAddresse = config.backendUrl;
-
-    const handleLogin = async () => {
-        try {
-            console.log('Logging in with email:', email, 'and password:', password);
-            const response = await fetch(backendAddresse+'/user/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email, password })
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                console.log('Login successful', data);
-                // Redirect to another page or perform any action upon successful login
-            } else {
-                console.error('Login failed', response.statusText);
-            }
-        } catch (error) {
-            console.error('Login failed', error);
-            // Handle error cases
-        }
-    };
+    useEffect(() => {
+        fetch('http://localhost:3001')
+            .then(r => r.json())
+            .then(data => {
+                if(data.loggedIn) {
+                    window.location.href = data.redirectUrl
+                }
+            })
+    }, [])
 
     return (
-        <div className="login-container">
-            <div className="login-box">
-                <label>Username</label>
-                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <label>Password</label>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <div className="button-container">
-                    <button onClick={handleLogin}>Login</button>
-                </div>
-                <p className="register-text">Don't have an account? <Link to="/register">Register here</Link></p>
-            </div>
+        <div className="bg-dark vh-100 text-center bg-gradient">
+            <img className={'h-50'} src={logo} alt={'logo'}/>
+
+            <h2 className={'text-white mb-4'}>Login with</h2>
+
+            <a className={'btn btn-primary rounded-3'} style={{width: 256}} href={'http://localhost:3001/auth'}>
+                <img
+                    className={'card-img'}
+                    src={discordLogo}
+                    alt={'discord logo'}
+                />
+            </a>
         </div>
     );
 }
